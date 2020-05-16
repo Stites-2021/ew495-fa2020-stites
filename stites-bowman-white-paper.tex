@@ -1,4 +1,8 @@
 \documentclass[10pt]{article}
+% for editing use
+%\usepackage{lineno}
+%\linenumbers
+%\usepackage{endfloat}
 
 % minimal packages here
 \usepackage{booktabs}
@@ -24,6 +28,12 @@
 	pdfsubject={weapons, robotics, and control engineering},
 	pdfkeywords={UUV, mesh networks, hydrographic survey}}
 
+% for editing use
+\usepackage{color}
+\definecolor{mygreen}{RGB}{28,172,0}
+\definecolor{mylilac}{RGB}{170,55,241}
+\usepackage[colorinlistoftodos]{todonotes}
+
 % Bowman Scholar White Paper
 \title{Unmanned underwater vehicle mobile mesh networks: applications for hydrographic surveying}
 \author{Corwin W. Stites\thanks{Author is with the Department of Weapons, Robotics, and Control Engineering at the United States Naval Academy. Address for correspondence: \emph{m216468@usna.edu}}}
@@ -35,7 +45,7 @@
 \begin{abstract}
 	Underwater surveying is a costly and time consuming endeavor. My proposed project would look into how a mobile mesh network could be applied to make hydrographic surveys more efficient and accurate. Such a network would consist of a group of sonar equipped Unmanned Underwater Vehicles (UUVs) connected via a mesh network actuated through an acoustic modem. The project would primarily focus on researching how nodes of the mesh network would communicate for best effect to accomplish fast hydrographic surveying of a predetermined area or fast location of an underwater target of interest. 
 \end{abstract}
-{\scriptsize\textbf{Keywords: } add some}
+{\scriptsize\textbf{Keywords: } UUV, mesh networks, hydrographic survey}
 
 \section{Midshipman Research Description}
 Nearly 80\% of U.S. international trade moves through ports which require constant bathymetry to ensure the safe transit of vessels. Underwater surveying is critical to detecting changing conditions or obstructions that could be hazardous to navigation. 500,000 square miles of U.S. waters are deemed navigationally significant and must be regularly surveyed by the National Oceanic and Atmospheric Administration (NOAA). These surveys are typically carried out by a single ship or underwater vehicle operating in a search pattern. This process requires a large amount of time and resources and as a result the NOAA must prioritize which areas it surveys \cite{noaa2009hydrographic}.
