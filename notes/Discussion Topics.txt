@@ -1,0 +1,29 @@
+﻿* Uses in the fleet?
+   * Getting multiple LOPs from a mesh network of acoustic sensors to determine an exact fix of an enemy submarine.
+   * Finding submerged objects of interest faster (mines, wrecks, terrain).
+   * Expanding sonar survivability and range.
+   * How could such a system be deployed?
+   * What are more possible uses in the fleet?
+      * [KSG]: Mapping flow of a pollutant like an oil slick (plume) (https://www.sciencedirect.com/science/article/pii/S1474667016312344)
+* TCP vs. UDP
+   * Which would be best for this application?
+      * [KSG]: Seems to depend on the type of information being transmitted and the rate at which it changes. If the UUV’s are transmitting their positions and they are moving relatively slowly, then it wouldn’t make much difference if a few packets were lost (i.e. UDP would be a better choice).
+   * What would the transport layer of this system look like in concrete terms?
+* Size of fleet
+   * I picked 20 but is that realistic?
+      * [KSG]: Depends on what “realistic” entails. If we’re talking about the actual ability to field 20 UUV’s at this point, then something like this (https://www.public.navy.mil/subfor/underseawarfaremagazine/Issues/Archives/issue_15/wave.html) might be helpful. If the question is about how many nodes are needed to accomplish a task, then it becomes a function of range requirements (for communication) scaled by the physical space that needs to be covered for the task.
+   * What are the consequences of adding/subtracting nodes?
+* Routing vs Flooding
+   * What are the specific pros and cons of these methods?
+* Healing Algorithms
+   *  How would I practically implement this in my project?
+* Data Rates
+   * What would data rates for an acoustic modem look like?
+* Simulation
+   * How would I use NetworkX?
+   * What would a simulation of the system look like on NetworkX or NS3?
+
+
+
+
+KSG Overall Comments: Very interesting project! I think the biggest challenge will be to stay focused on what particular area you’re working on. A lot of ideas are presented in the proposal, which opens up for a lot of questions about things like maneuvering of the UUV’s, coordination algorithms, etc. You need to be clear early on that you’re focusing on the communication technology.
