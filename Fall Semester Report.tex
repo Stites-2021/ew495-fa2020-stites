@@ -1,0 +1,99 @@
+\documentclass[10pt]{article}
+% for editing use
+%\usepackage{lineno}
+%\linenumbers
+%\usepackage{endfloat}
+
+% minimal packages here
+\usepackage{listings}
+\lstset{basicstyle=\footnotesize}
+\usepackage{booktabs}
+\usepackage[noadjust]{cite}
+\bibliographystyle{IEEEtran}
+\usepackage[plain]{fancyref}
+\renewcommand{\freffigname}{Fig.}
+\renewcommand{\Freffigname}{Fig.} 
+\renewcommand{\freftabname}{Table}
+\renewcommand{\Freftabname}{Table}
+\frefformat{plain}{\fancyrefeqlabelprefix}{(#1)} 
+\Frefformat{plain}{\fancyrefeqlabelprefix}{(#1)} 
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{%
+	colorlinks=true,
+	linkcolor=violet,
+	urlcolor=blue,
+	citecolor=blue,
+	pdfauthor={Corwin Stites},
+	pdftitle={Unmanned underwater vehicle mobile mesh networks: applications for hydrographic surveying},
+	pdfsubject={weapons, robotics, and control engineering},
+	pdfkeywords={UUV, mesh networks, hydrographic survey}}
+
+% for editing use
+\usepackage{color}
+\definecolor{mygreen}{RGB}{28,172,0}
+\definecolor{mylilac}{RGB}{170,55,241}
+\usepackage[colorinlistoftodos]{todonotes}
+
+% Fall Smester Bowman Research Report
+\title{Unmanned Underwater Vehicle Mobile Mesh Networks: Applications for Hydrographic Surveying}
+\author{Corwin W. Stites\thanks{Author is with the Department of Weapons, Robotics, and Control Engineering at the United States Naval Academy. Address for correspondence: \emph{m216468@usna.edu}}}
+\date{December 1, 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	Underwater surveying is a costly and time consuming endeavor. My project is investigating how a mobile mesh network could be applied to make hydrographic surveys more efficient and accurate. Such a network would consist of a group of sonar equipped Unmanned Underwater Vehicles (UUVs) connected via a mesh network actuated through an acoustic modem. The project focus is on the spatial arrangement of the nodes as well as how nodes of the mesh network would communicate for best effect to accomplish fast hydrographic surveying of a predetermined area or fast location of an underwater target of interest.  
+\end{abstract}
+
+{\scriptsize\textbf{Keywords: } UUV, Mesh Networks, Hydrographic Survey}
+
+\section{Motivation}
+Underwater surveying is a critically important yet resource intensive endeavour. Large areas of ocean must have bathymetry data regularly updated in order to allow for safe ship navigation. Furthermore, finding a submerged target such as a wreckage or explosive device  requires large areas of ocean to be surveyed. Unmanned Underwater Vehicles have proven success in greatly streamlining the hydrographic surveying process by allowing for collaborative fleet surveying. Creating a mobile network of UUVs provides opportunities for further autonomization of hydrographic surveying.  A mesh network made up of UUVs acting as individual nodes would allow for collaborative position and velocity tracking within the network thus removing the need for constant shipboard control. When designing such a network, redundancy in the network will be a critical aspect of the design. In other words, the network must be able to route around missing nodes in the event that a UUV is damaged or goes offline.
+
+
+\section{Research Introduction}
+
+\section{Methods}
+
+\section{Pseudo Code}
+\begin{lstlisting}
+
+Define Create_Network_Function()
+	return desired_network_layout
+Define Delete_Nodes_Function(Network)
+	i = 0
+	while 1=<5
+		delete random node in Network 
+		i=i+1
+	return damaged_network
+Define Find_Survivability/Latency_Function(Damaged_Network)
+	i = 0
+	while 1=<100
+		Pick two random nodes in Damaged_Network
+		Find if path exists or not between them
+		If path exists find the length
+		i = i+1
+	Survivability = Find ratio of successful connections to... 
+	total connection attempts
+	Path_Length = Find average surviving path length
+	return [Survivability, Path_Length]
+
+i = 0
+while 1=<1000
+	Network = Create_Network_Function()
+	Damaged_Network = Delete_Nodes_Function(Network)
+	[Survivability[i], Path_Length[i]]...
+	= Find_Survivability/Latency_Function(Damaged_Network)
+	i = i+1
+Final_Values = Average([Survivability, Path_Length])
+\end{lstlisting}
+
+\section{Results}
+
+\section{Discussion}
+
+\end{document}
