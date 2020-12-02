@@ -103,3 +103,90 @@ The results of the simulation showed that the random network performed least wel
 The results of the simulation show that a circularly arranged master node network has advantages in terms of reducing travel latency while a grid network provides an advantage in survivability. A user could choose between these networks based on the perceived threat to the network and/or desired transmission speed within the network. A single network could also be designed to incorporate aspects from both  (including diagonal connections in the grid algorithm for example) in order to combine the strengths of the two networks. While the results of this simulation were not particularly surprising, the process of building the networks and simulations laid the groundwork for deeper research questions that will be explored next semester regarding additional network spatial arrangements as well as more advanced routing protocols and network healing algorithms.
 
 \end{document}
+
+
+% Copied from poster by DE
+%\section*{Introduction}
+%Underwater surveying is a costly and time consuming endeavor. Large areas of ocean must have bathymetry data regularly updated in order to allow for safe ship navigation. Furthermore, finding a submerged target such as a wreckage or explosive device  requires large areas of ocean to be surveyed. Unmanned Underwater Vehicles have proven success in greatly streamlining the hydrographic surveying process by allowing for collaborative fleet surveying. Creating a mobile network of UUVs provides opportunities for further autonomization of hydrographic surveying.  A mesh network made up of UUVs acting a sindividual nodes would allow for collaborative position and velocity tracking within the network  thus  removing the need for constant shipboard control. When designing such a network, redundancy in the network will be a critical aspect of the design. In other words, the network must be able to route around missing nodes in the event that a UUV is damaged or goes offline.
+%\begin{figure}
+%\begin{center}
+%image here
+%\end{center}
+%\caption{An example of fleet UUV network technology. Ocean Infinity Hugin AUVs conducting hydrographic surveying while being controlled by a ship mounted acoustic modem.}
+%\end{figure}
+%
+%\subsection*{Problem statement}
+%The aim of this research was to investigate the redundancy of different UUV mesh networks built for the purpose of conducting hydrographic surveying. The research determined how the spatial arrangement of nodes in a network and the connection architecture of the network would affect the ability of a network to function in the event of multiple offline nodes. Three types of network spatial arrangements were investigated each with a different connection architecture protocol. 
+%\begin{enumerate}
+%\item A network of randomly distributed nodes using an opportunistic connection algorithm (connection formed between closest nodes). 
+%\item A network made up of a ``master node'' surrounded by two concentric circles of worker nodes connected by a branching algorithm.
+%\item A grid network connected by a grid algorithm. 
+%\end{enumerate}
+%
+%\section*{Methods and materials}
+%The method of testing was software simulation. The code was written in Python utilizing the \lstinline{networkx} library to build and simulate the networks. A few key control variables were set during the tests.
+%\begin{enumerate}
+%\item All networks were arranged in a \SI{40}{\meter\squared} operating area.
+%\item All networks were built with 30 nodes.
+%\item 5 nodes were removed from each network to simulate a damaged network.
+%\end{enumerate}
+%The simulation ran 1000 iterations of collecting the average survivability (successful connection rate between two random nodes) and the average surviving connection length from 100 randomly damaged networks. Using an average speed of sound in saltwater of  $V_{sound} = \SI{1510}{\meter\per\second}$, the average travel latency of the acoustic signal was calculated from the path length.
+%
+%\begin{figure}
+%\begin{center}
+%Code block here
+%\end{center}
+%\caption{Pseudocode providing a basic synopsis of the simulation code}
+%\end{figure}
+%
+%\begin{figure}
+%\begin{center}
+%image here
+%\end{center}
+%\caption{NetworkX Plots showing from left to right a randomly distributed network, a circular master node network, and a grid network.}
+%\end{figure}
+%
+%\begin{figure}
+%\begin{center}
+%image here
+%\end{center}
+%\caption{NetworkX Plots showing the above networks after having been run through a function to randomly remove five nodes.}
+%\end{figure}
+%
+%\section*{Results}
+%\begin{table}
+%\caption{Table of simulation outputs. Results of network sensitivity and average path weight simulation.}
+%\begin{center}
+%  \begin{tabular}{cccc}
+%    \toprule
+%    network layout & survivability rate (\si{\percent}) & average surviving connection path length (\si{\meter}) & average travel latency time of surviving connections (\si{\second})\\
+%    \midrule
+%    random & 25.98 & 21.00 & 0.0139\\
+%    circular-master & 53.20 & 22.97 & 0.0152 \\
+%    grid & 67.93 & 28.77 & 0.0191 \\
+%    \bottomrule
+%    \end{tabular}
+%\end{center}
+%\end{table}
+%
+%\begin{figure}
+%\begin{center}
+%image here
+%\end{center}
+%\caption{Histograms showing the frequency of successful connection rates and average surviving path lengths out of 1000 trials for each graph type.}
+%\end{figure}
+%
+%\section{Discussion}
+%\begin{block}{Discussion}
+%The results of the simulation showed that the random network performed least well over both aspects of the simulation. This result was expected as the random network was intended mostly as a basis for comparison. The master network demonstrated the lowest surviving connection path length, and consequently, the lowest acoustic signal travel latency.  This is due to the circular arrangement allowing pseudo-diagonal connections across the testing area compared to the grid networks vertical and horizontally aligned connections. In terms of survivability however, the grid networks repetitive communication architecture proved to have superior redundancy over the master network. 
+%
+%The results of the simulation show that a circularly arranged master node network has advantages in terms of reducing travel latency while a grid network provides an advantage in survivability. A user could choose between these networks based on the perceived threat to the network and/or the user’s desired network transmission speed within the network. One network could also be designed to incorporate aspects from the other (including diagonal connections in the grid algorithm for example) in order to combine the strengths of the two networks. While the results of this simulation were not particularly surprising, the process of building the networks and simulations laid the groundwork for deeper research questions that will be explored next semester regarding additional network spatial arrangements as well as more advanced routing protocols and network healing algorithms.
+%
+%\section*{Acknowledgements}
+%
+%%\section*{References}
+%%\begin{block}{References}
+%%\bibliographystyle{IEEEtrans} % or IEEEtrans if you want that kind
+%%\scriptsize\bibliography{poster.bib}
+%%\end{block}
+%
