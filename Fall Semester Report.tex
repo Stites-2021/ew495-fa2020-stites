@@ -55,13 +55,14 @@ Underwater surveying is a critically important yet resource intensive endeavour.
 
 
 \section{Research Introduction}
-The aim of this research was to investigate the redundancy of different UUV mesh networks built for the purpose of conducting hydrographic surveying. The research determined how the spatial arrangement of nodes in a network and the connection architecture of the network would affect the ability of a network to function in the event of multiple offline nodes. Three types of network spatial arrangements were investigated each with a different connection architecture protocol . 
+The aim of this research was to investigate the redundancy of different UUV mesh networks built for the purpose of conducting hydrographic surveying. The research determined how the spatial arrangement of nodes in a network and the connection architecture of the network would affect the ability of a network to function in the event of multiple offline nodes. Three types of network spatial arrangements were investigated each with a different connection architecture protocol. The first was a completely randomly distributed network 
 
 
 \section{Methods}
+he method of testing was software simulation. The code was written in Python utilizing the NetworkX library to build and simulate the networks. A few key control variables were set during the tests. All networks were arranged in a 40 meter squared operating area. All networks were also built with thirty nodes and five nodes were removed from each network to simulate a damaged network. The simulation ran 1000 iterations to collect the average survivability (successful connection rate between two random nodes) and the average surviving connection length from 100 randomly damaged networks. Using an average velocity of sound in saltwater of 1510 meters per second the average travel latency of the acoustic signal was calculated from the average path length.
 
 \section{Pseudo Code}
-The following pseudo code provides a basic overview of how the code tests
+The following pseudo code provides a basic overview of how the code tests the survivability of various mesh network layouts. 
 \lstset{basicstyle=\footnotesize}
 \begin{lstlisting}
 
@@ -96,7 +97,9 @@ Final_Values = Average([Survivability, Path_Length])
 \end{lstlisting}
 
 \section{Results}
+The results of the simulation showed that the random network performed least well over both aspects of the simulation. This result was expected as the random network was intended mostly as a basis for comparison. The master network demonstrated the lowest surviving connection path length, and consequently, the lowest acoustic signal travel latency.  This is due to the circular arrangement allowing pseudo-diagonal connections across the testing area compared to the grid network’s vertical and horizontally aligned connections. In terms of survivability however, the grid network’s repetitive communication architecture proved to have superior redundancy over the master network. 
 
 \section{Discussion}
+The results of the simulation show that a circularly arranged master node network has advantages in terms of reducing travel latency while a grid network provides an advantage in survivability. A user could choose between these networks based on the perceived threat to the network and/or desired transmission speed within the network. A single network could also be designed to incorporate aspects from both  (including diagonal connections in the grid algorithm for example) in order to combine the strengths of the two networks. While the results of this simulation were not particularly surprising, the process of building the networks and simulations laid the groundwork for deeper research questions that will be explored next semester regarding additional network spatial arrangements as well as more advanced routing protocols and network healing algorithms.
 
 \end{document}
