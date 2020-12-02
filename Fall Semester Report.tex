@@ -55,11 +55,61 @@ Underwater surveying is a critically important yet resource intensive endeavour.
 
 
 \section{Research Introduction}
-The aim of this research was to investigate the redundancy of different UUV mesh networks built for the purpose of conducting hydrographic surveying. The research determined how the spatial arrangement of nodes in a network and the connection architecture of the network would affect the ability of a network to function in the event of multiple offline nodes. Three types of network spatial arrangements were investigated each with a different connection architecture protocol. The first was a completely randomly distributed network 
+The aim of this research was to investigate the redundancy of different UUV mesh networks built for the purpose of conducting hydrographic surveying. The research determined how the spatial arrangement of nodes in a network and the connection architecture of the network would affect the ability of a network to function in the event of multiple offline nodes. \par 
+The metrics used to measure this in the project was the successful connection rate between two nodes in a damaged network and the average path length of successful connections. This data was taken from 100 random pairs of nodes in a randomly damaged network. The ratio of successful connections to total connection attempts was measured and deemed the "Survivability Rate." Out of the successful connections the sum of the paths' lengths that formed the connection was measured. This was then averaged for all successful connections and deemed the "Surviving Path Length." This value could be used to determine latency time since it could be used to determine the travel time of an acoustic signal based on an approximate value of the speed of sound in saltwater. \par 
+Three types of network spatial arrangements were investigated each with a different connection architecture protocol. This portion of the project was important for laying the groundwork of developing methods for building and testing networks in a coding environment in order to begin further exploring more advanced topics like healing algorithms, network throughput, and data rates next semester. 
 
 
 \section{Methods}
-he method of testing was software simulation. The code was written in Python utilizing the NetworkX library to build and simulate the networks. A few key control variables were set during the tests. All networks were arranged in a 40 meter squared operating area. All networks were also built with thirty nodes and five nodes were removed from each network to simulate a damaged network. The simulation ran 1000 iterations to collect the average survivability (successful connection rate between two random nodes) and the average surviving connection length from 100 randomly damaged networks. Using an average velocity of sound in saltwater of 1510 meters per second the average travel latency of the acoustic signal was calculated from the average path length.
+The method of testing was software simulation. The code was written in Python utilizing the NetworkX library to build and simulate the networks. A few key control variables were set during the tests. All networks were arranged in a 40 meter squared operating area. All networks were also built with thirty nodes and five nodes were removed from each network to simulate a damaged network. \par
+
+Before the simulation could be run, the networks and and their connection protocols had to be built. The first network was a completely randomly distributed network that utilized an opportunistic routing algorithm to form its connections. The opportunistic routing algorithm functioned by finding the best opportunity for each connection while ensuring that all nodes were connected to the network. This entailed connecting every node to the closest node that it did not have an existing connection with.The intent of this network was to be a basis of comparison for other networks utilizing more advanced and formulaic architectures. The next network was a circular network arranged around a master node. This entailed the master node being surrounded by two concentric rings of worker nodes. The master node was connected to all members of the inner ring while members of the inner ring only connected to members of the outer ring that was within a particular distance threshold. The final network was a square grid layout of evenly spaced nodes. Connections were only formed with nodes aligned vertically above or horizontally to the side of a particular node. \par
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.33\columnwidth]{figures/RandomLayout.png}
+\end{center}
+\caption{A NetworkX generated plot showing a randomly distributed network of 30 nodes connected with an opportunistic protocol. Note: Weight of the line indicates the connection latency or distance between nodes.}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.33\columnwidth]{figures/MasterLayout.png}
+\end{center}
+\caption{A plot showing a circular network utilizing a master node at the center.}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.33\columnwidth]{figures/GridLayout.png}
+\end{center}
+\caption{A plot showing a grid network with only adjacent vertical and horizontal connections.}
+\end{figure}
+
+Next an array of randomly damaged networks had to be created to be run through the function that would determine the network architectures. A function was created that took and undamaged network as an argument and randomly removed five of its nodes and all connections to or from those nodes. This produced the damaged networks that would be used in the simulation.\par
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.33\columnwidth]{figures/DamagedRandomLayout.png}
+\end{center}
+\caption{A plot showing a damaged random network.}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.33\columnwidth]{figures/DamagedMasterLayout.png}
+\end{center}
+\caption{A plot showing a damaged master network.}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.33\columnwidth]{figures/DamagedGridLayout.png}
+\end{center}
+\caption{A plot showing a damaged grid network.}
+\end{figure}
+
+To test the damaged networks, the simulation ran 1000 iterations of collecting the average survivability rate and the surviving path length from 100 randomly damaged networks. Using an average velocity of sound in saltwater of 1510 meters per second the average travel latency of the acoustic signal was calculated from the average path length.
 
 \section{Pseudo Code}
 The following pseudo code provides a basic overview of how the code tests the survivability of various mesh network layouts. 
@@ -97,7 +147,35 @@ Final_Values = Average([Survivability, Path_Length])
 \end{lstlisting}
 
 \section{Results}
-The results of the simulation showed that the random network performed least well over both aspects of the simulation. This result was expected as the random network was intended mostly as a basis for comparison. The master network demonstrated the lowest surviving connection path length, and consequently, the lowest acoustic signal travel latency.  This is due to the circular arrangement allowing pseudo-diagonal connections across the testing area compared to the grid network’s vertical and horizontally aligned connections. In terms of survivability however, the grid network’s repetitive communication architecture proved to have superior redundancy over the master network. 
+The results of the simulation showed that the random network performed least well over both aspects of the simulation. This result was expected as the random network was intended mostly as a basis for comparison. The master network demonstrated the lowest surviving connection path length, and consequently, the lowest acoustic signal travel latency.  This is due to the circular arrangement allowing pseudo-diagonal connections across the testing area compared to the grid network’s vertical and horizontally aligned connections. In terms of survivability however, the grid network’s repetitive communication architecture proved to have superior redundancy over the master network. This is  due to the fact that the master network is heavily reliant on the master node for its connection architecture as it it is the only path between the inner circle of worker nodes. If the master nod is removed, the network is very vulnerable to connection failure.  
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.6\columnwidth]{tables/ResultsTable.PNG}
+\end{center}
+\caption{A table showing the simulation results for each network type.}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.6\columnwidth]{figures/RandomHistogram.png}
+\end{center}
+\caption{A histogram showing the simulation result distribution for the random network.}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.6\columnwidth]{figures/MasterHistogram.png}
+\end{center}
+\caption{A histogram showing the simulation result distribution for the master network.}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.6\columnwidth]{figures/GridHistogram.png}
+\end{center}
+\captionA {A histogram showing the simulation result distribution for grid network.}
+\end{figure}
 
 \section{Discussion}
 The results of the simulation show that a circularly arranged master node network has advantages in terms of reducing travel latency while a grid network provides an advantage in survivability. A user could choose between these networks based on the perceived threat to the network and/or desired transmission speed within the network. A single network could also be designed to incorporate aspects from both  (including diagonal connections in the grid algorithm for example) in order to combine the strengths of the two networks. While the results of this simulation were not particularly surprising, the process of building the networks and simulations laid the groundwork for deeper research questions that will be explored next semester regarding additional network spatial arrangements as well as more advanced routing protocols and network healing algorithms.
