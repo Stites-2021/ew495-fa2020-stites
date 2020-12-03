@@ -57,7 +57,7 @@ To help choose between these various network architecture design alternatives, h
 \label{fig:2}
 \end{figure}
 
-The networks discussed in this paper are abstractions in which I consider a spatial arrangement within a \SI{40x40}{\meter} grid and transport delays consistent with the speed of sound in water ($c=\SI{1500}{\meter\per\second}$). As the work progresses, the simulations will be revised as appropriate to model underwater acoustic hardware, e.g. \fref{tab:1}.
+The networks discussed in this paper are abstractions in which I consider a spatial arrangement within a \SI{40x40}{\meter} grid and transport delays consistent with the speed of sound in water ($c=\SI{1510}{\meter\per\second}$). As the work progresses, the simulations will be revised as appropriate to model underwater acoustic hardware, e.g. \fref{tab:1}.
 \begin{table}[h]
 \caption{Specifications for an ARM9 Cortex-M3 acoustic modem. The network architecture will have to be designed around the data rates both transmitting and receiving for an underwater system such as this \cite{arm2013acoustic}.}
 \label{tab:1}
@@ -250,11 +250,11 @@ I was able to evaluate different network architectures for a 30-node network ove
 %Using the metrics of transmission time (given by the transmission’s latency), successful transmission rate (given by the transmission’s throughput and packet loss rates), and immunity to node failure I will evaluate different architectures of a 20 node mesh network. This will be done using simulation, probably through MATLAB software and Python based NetworkX software \cite{hagberg2008exploring}. The network simulation C++ based software NS-3 has also been shown to be highly successful at modeling UDP transmission based mesh networks and could be used \cite{dugaev2020wireless}. Using these software platforms, different processes could be coded and simulated and the above metrics could be measured and evaluated.
 
 \section*{Acknowledgements}
-I acknowledge the support of the Frank L.~Bowman Scholarship Program at the United States Naval Academy. 
+I thank my advisor D Evangelista. I acknowledge the support of the Frank L.~Bowman Scholarship Program at the United States Naval Academy. 
 
 \bibliography{IEEEabrv, stites.bib}
 
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{\myroot/figures/M216468.jpg}}]{Corwin Wesley Stites} is a midshipman at the United States Naval Academy majoring in Robotics and Control Engineering. Stites is a Bowman Scholar at USNA; upon graduation, he hopes to attend graduate school, after which he will serve as a submarine officer. He enjoys applying to graduateschool, German, and Python coding. 
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{\myroot/figures/M216468.jpg}}]{Corwin Wesley Stites} is a midshipman at the United States Naval Academy majoring in Robotics and Control Engineering. Stites is a Bowman Scholar at USNA; upon graduation, he hopes to attend graduate school, after which he will serve as a submarine officer. He enjoys applying to graduate school, kind letters of recommendation, German, and Python coding. 
 \end{IEEEbiography}
 \end{document}
 
